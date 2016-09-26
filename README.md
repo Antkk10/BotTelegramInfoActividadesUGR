@@ -1,6 +1,4 @@
  
-# Proyecto IV #
+# Proyecto0 #
 
-Proyecto de la asignatura IV. Todavía no he decidido que proyecto voy a realizar.
-
-Licencia: GNU General Public License v3.0
+Hito0 para explicar la realización de la práctica 0.
