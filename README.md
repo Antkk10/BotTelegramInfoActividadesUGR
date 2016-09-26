@@ -1,5 +1,6 @@
-# proyectoIV
 
-Proyecto de la asignatura IV. Todavía no he decido que hacer con el proyecto, lo decidiré este semana.
+# Proyecto IV #
+
+Proyecto de la asignatura IV. Todavía no he decidido que proyecto voy a realizar.
 
 Licencia: GNU General Public License v3.0
