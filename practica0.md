@@ -56,4 +56,19 @@ Posteriormente rellenamos el nombre del repositorio **ProyectoIV**, inicializamo
 
 ![Sin título](capturas/creacionproyecto.png)
 
-Pulstamos el boton create repository y ya tenemos el repositorio creado.
+Pulsamos el boton create repository y ya tenemos el repositorio creado.
+
+### Trabajar con el repositorio en el ordenador personal ###
+
+Para descargar el contenido del repositorio almacenado en github basta con situar en la carpeta que deseamos almacenar el repositorio y insertar el siguiente comando: **git clone git@github.com:Antkk10/proyectoIV.git**. Se nos creara una carpeta llamada proyectoIV, en ella tenemos todo el contenido del proyecto y ya podremos trabajar sobre el.
+
+### Subida de archivos, ejemplo con .gitignore ###
+
+Para la subida de ficheros (en este caso .gitignore) abrimos un archivo nuevo **sublime-text .gitignore.md** que contiene las siguientes lineas:
+
+![Sin título](capturas/gitignore.png)
+
+Para la subida del archivo debemos meter los siguientes tres comandos que se muestran en la captura
+
+![Sin título](capturas/explicacionsubidaarchivo.png)
+
