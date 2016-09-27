@@ -37,7 +37,7 @@ En la pestaña **Profile** tenemos que rellenar los siguientes campos:
 1. Name
 2. Company
 3. Location
-
+![Sin título](capturas/profile.png)
 ![Sin título](capturas/actualizar.png)
 
 Una vez rellenado los campos pulsamos el botón Update profile para confirmar los datos. Seguidos estos pasos, mi perfil tiene el siguiente aspecto:
