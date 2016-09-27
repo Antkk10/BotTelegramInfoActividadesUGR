@@ -34,9 +34,11 @@ Para editar el perfil en Github accedemos a nuestra cuenta en la esquina superio
 ![Sin título](capturas/esquinaderecha.png)
 
 En la pestaña **Profile** tenemos que rellenar los siguientes campos:
+
 1. Name
 2. Company
 3. Location
+
 ![Sin título](capturas/profile.png)
 ![Sin título](capturas/actualizar.png)
 
@@ -44,3 +46,14 @@ Una vez rellenado los campos pulsamos el botón Update profile para confirmar lo
 
 ![Sin título](capturas/perfil.png)
 
+### Creación del proyecto ###
+
+Para crear el proyecto lo he hecho desde la página de github pulsando dentro de mis repositorios en el botón new (antes de la explicación ya había creado el proyecto).
+
+![Sin título](capturas/new.png)
+
+Posteriormente rellenamos el nombre del repositorio **ProyectoIV**, inicializamos un README que posteriormente vamos a rellenar explicando en que consiste el repositorio y por último añadimos la licencia **GNU General Public License v3.0**. El archivo .gitignore lo subí de forma manual.
+
+![Sin título](capturas/creacionproyecto.png)
+
+Pulstamos el boton create repository y ya tenemos el repositorio creado.
