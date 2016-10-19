@@ -1,6 +1,6 @@
-# proyectoIV
 
-## Bot de telegram que informa sobre actividades de la UGR ##
+
+# Bot de telegram que informa sobre actividades de la UGR #
 
 #### Descripción ####
 Uso de un bot de Telegram para obtener información de las actividades que se realizan a lo largo de la semana.
