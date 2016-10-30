@@ -27,3 +27,20 @@ Necesitamos una serie de herramientas para el correcto funcionamiento del bot.
 
 Se puede valorar usar algún almacen de datos más.
 El tipo de base de datos que se usará para cada cosa todavía no lo he decidido.
+
+#### Integración continua ####
+
+Para la integración continua he usado Travis-CI, lo he enlazado con mi cuenta de github. Para que Travis compruebe si nuestro código funciona correctamente he creado un archivo [.travis.yml](https://github.com/Antkk10/BotTelegramInfoActividadesUGR) indicandole el lenguaje de programación usado y el make de instalación y test del bot.
+
+#### Make ####
+
+He creado un archivo makefile para la instalación, test y ejecucición del bot. El make contiene:
+
+    install:
+    	pip install -r requirements.txt
+
+    test:
+    	cd ActividadesUGRBot && python test.py
+
+    ejecutar:
+    	cd ActividadesUGRBot && python actividadesUGR_bot.py
