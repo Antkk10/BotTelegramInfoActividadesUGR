@@ -19,7 +19,7 @@ class TestStringMethods(unittest.TestCase):
     def test_nombre_actividad(self):
         """ Test que devuelve true si el nombre de la actividad coincide"""
         nombre = funcionesdb.actividadesDisponibles("SELECT nombre FROM disponibles WHERE nombre='Charla Erasmus'")
-        self.assertEqual(nombre, "Charla Erasmus")
+        self.assertEqual(nombre, "Charla Erasmus\n")
 
 
 
