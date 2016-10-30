@@ -29,7 +29,10 @@ def cantidadActividades():
     db = sqlite3.connect('actividades.db')
     b = db.cursor()
     b.execute("SELECT * FROM disponibles") # Obtenemos el resultado de la consulta
-    total = len(b) # Obtenemos la cantidad total de actividades disponibles
+    total = 0
+    # Obtenemos la cantidad de actividades disponibles.
+    for i in b:
+        total += 1
     # Cerramos la base de datos
     b.close()
     db.close()

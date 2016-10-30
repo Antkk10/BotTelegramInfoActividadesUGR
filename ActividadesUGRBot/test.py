@@ -13,7 +13,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_actividad_fecha(self):
         """ Test que devuelve true si hay actividades para una fecha concreta. """
-        hay_actividades = funcionesdb.actividadesDisponibles("SELECT * FROM disponibles WHERE date='2017-01-01'")
+        hay_actividades = funcionesdb.actividadesDisponibles("SELECT * FROM disponibles WHERE fecha='2017-01-01'")
         self.assertIsNotNONE(hay_actividades)
 
     def test_nombre_actividad(self):
