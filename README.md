@@ -13,28 +13,22 @@ La descripción del proyecto se encuentra en la rama master del repositorio.
 5. En el proyecto uso almacenes de datos para separar la información. Juan ha explicado en clase que es muy importante tener varias base de datos y que cada una maneja la información que le corresponde (explicada en README.md). Sobre que base de datos usar para cada una de las tres opciones, se está valorando.
 
 
-# Bot de telegram que informa sobre actividades de la UGR #
-[![Build Status](https://travis-ci.org/Antkk10/BotTelegramInfoActividadesUGR.svg?branch=master)](https://travis-ci.org/Antkk10/BotTelegramInfoActividadesUGR)
-#### Descripción ####
-Uso de un bot de Telegram para obtener información de las actividades que se realizan a lo largo de la semana.
+## Documentación correspondiente a todo el desarrollo del hito 2 ##
 
-1. El bot estará online todo el tiempo.
-2. Recopilará la información de forma autónoma.
-3. Responderá conforme se le pregunta.
-4. Tendrá un entorno en pruebas para comprobar si el bot funciona correctamente.
+### Travis ###
+**Travis** es un sistema distribuido de integración continua libre integrado en Github.
 
-#### Herramientas ####
-Necesitamos una serie de herramientas para el correcto funcionamiento del bot.
+Para obtener una cuenta en [Travis](https://travis-ci.org/) la he asociado a mi cuenta de Github ya que
+Travis lo permite.
+Una vez que he asociado mi cuenta de Github a Travis, he insertado el repositorio para realizar los test.
+Eso se hace pulsando en la pestaña accounts en la esquina superior derecha que aparece al pasar el puntero del ratón
+sobre el nuestro nombre. Al pulsar aparece todos los repositorios que tiene nuestra cuenta y debemos de seleccionar
+la cuenta en la que queramos que se hacen los test.
 
-1. Uso de un servicio en la nube para almacenar el bot y que funcione. **Azure o Amazon**
-2. Posiblemente use como entorno de pruebas Docker.
-3. Para la obtención de información aun no se ha decidido.
-4. Uso de la API de Telegram.
-5. Posiblemente use Python y algún otro lenguaje de programación que sirva para implementar el bot.
-6. Uso de almacenes de datos para:
-  * Almacen de datos que tenga la información de las próximas actividades de la universidad con su fecha, hora de inicio y descripción.
-  * Almacen de datos con el histórico de las actividades de la universidad.
-  * Almacen de datos con información de la cantidad de veces que se solicita obtener información sobre cada actividad.
+Después de la configuración debemos subir un archivo .travis.yml con el contenido de configuración de la maquina virtual
+que hará los test. El archivo que yo he subido es el siguiente: [archivo](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/.travis.yml).
 
-Se puede valorar usar algún almacen de datos más.
-El tipo de base de datos que se usará para cada cosa todavía no lo he decidido.
+Por último, el icono que aparece en el [README](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/README.md) si pulsamos encima de el nos lleva a la página de Travis donde se testea que todo funciona correctamente. Para insertar el código nos vamos a la página de [Travis](https://travis-ci.org/) (con el repositorio ya asociado a la cuenta) pulsamos encima del icono de build (está al lado del icono de github y en la misma linea que el nombre del repositorio) y seleccionamos Branch --> Master, Segunda Linea --> Markdown y copiamos todo el contenido que aparece en el tercer bloque. Eso que hemos copiado lo insertamos en el README.md del repositorio y ya tenemos el icono en nuestro repositorio.
+
+### Información. ###
+Para desarrollar el hito 2, he obtenido la información para el desarrollo del bot de [](https://docs.python.org/2/) y [](https://github.com/eternnoir/pyTelegramBotAPI)
