@@ -30,7 +30,7 @@ El tipo de base de datos que se usará para cada cosa todavía no lo he decidido
 
 #### Integración continua ####
 
-Para la integración continua he usado Travis-CI, lo he enlazado con mi cuenta de github. Para que Travis compruebe si nuestro código funciona correctamente he creado un archivo [.travis.yml](https://github.com/Antkk10/BotTelegramInfoActividadesUGR) indicandole el lenguaje de programación usado y el make de instalación y test del bot.
+Para la integración continua he usado Travis-CI, lo he enlazado con mi cuenta de github. Para que Travis compruebe si nuestro código funciona correctamente he creado un archivo [.travis.yml](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/.travis.yml) indicandole el lenguaje de programación usado y el make de instalación y test del bot.
 
 #### Make ####
 
