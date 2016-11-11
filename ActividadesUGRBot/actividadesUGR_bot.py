@@ -2,7 +2,9 @@
 
 import telebot # librería para usar el bot
 import sqlite3 # Para usar la base de datos sqlite3
-from funcionesdb import actividadesDisponibles # Función para hacer peticiones
+#from funcionesdb import actividadesDisponibles # Función para hacer peticiones
+import funcionesdb
+from pymongo import MongoClient
 
 # token que nos dio bot father
 token = "285555767:AAGH4tCGG2Q2Qx_uhJFYEDhIVWx_TRhSfCI"
@@ -18,15 +20,22 @@ def enviar_bienvenida(message):
 def enviar_actividades(m):
     """Función que envia las actividades de la semana al usuario. """
     cid = m.chat.id # Obtenemos la id del usuario.
-    resp = actividadesDisponibles("Select nombre FROM disponibles")
+    resp = funcionesdb.actividadesDisponibles()
     bot.send_message(cid, resp)
 
-@bot.message_handler(commands=['fecha'])
-def enviar_fecha(m):
-    """ Función que envia al usuario las actividades y fechas disponibles. """
-    cid = m.chat.id # Obtenemos la id del usuario.
-    resp = actividadesDisponibles("Select * FROM disponibles")
-    bot.send_message(cid, resp)
+@bot.message_handler(commands=['cantidad_actividades'])
+def cantidad_actividades(m):
+    """ Función que envia la cantidad de actividades disponibles. """
+    cid = m.chat.id # obtenemos la id del usuario
+    total = funcionesdb.cantidadActividades()
+    bot.send_message(cid, total)
+
+#@bot.message_handler(commands=['fecha'])
+#def enviar_fecha(m):
+#    """ Función que envia al usuario las actividades y fechas disponibles. """
+#    cid = m.chat.id # Obtenemos la id del usuario.
+#    resp = actividadesDisponibles()
+#    bot.send_message(cid, resp)
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):

@@ -1,47 +1,56 @@
 #!/bin/usr/python
 # -*- coding: utf-8 -*-
 
-import sqlite3
+from pymongo import MongoClient
 
-def actividadesDisponibles(consulta):
-    db = sqlite3.connect('actividades.db') # conectamos con la bd
-    b = db.cursor()
-    b.execute(consulta) # Obtenemos el resultado de la consulta
+def nombreActividad(nombre):
+    # Conectamos con mongo
+    mongoClient = MongoClient('localhost', 27017)
+    # Conectamos con la base de datos
+    db = mongoClient['actividades_ugr']
+    existe = ""
+
+    #Obtenemos la consulta
+    cursor = db['Actividades'].find({'actividad':nombre})
+    if cursor.count() != 0:
+        existe = True
+    else:
+        existe = False
+
+    mongoClient.close()
+
+    return existe
+
+def actividadesDisponibles():
+    # Conectamos con mongo
+    mongoClient = MongoClient('localhost', 27017)
+    # Conectamos con la base de datos
+    db = mongoClient['actividades_ugr']
+
+    # Obtenemos una colección para trabajar con ella
+    cursor = db['Actividades'].find()
+
     resp = ""
-    for r in b:
-        # Mandamos un string con un formato válido.
-        aux = str(r)
-        pos1 = aux.find("'")
-        pos2 = aux.find("'", len(aux)-3)
-        final = ""
-        for i in range(pos1+1, pos2):
-            final += aux[i]
-        resp += str(final) + "\n"
 
-    # Cierre de conexión con la base de datos.
-    b.close()
-    db.close()
+    for c in cursor:
+        resp += c['actividad'] + " " + c['fecha'] + " " + c['hora'] + '\n'
+
+    mongoClient.close()
     return resp
 
 def cantidadActividades():
-    """ Función que devuelve el total de actividades disponibles """
+    # Conectamos con mongo
+    mongoClient = MongoClient('localhost', 27017)
     # Conectamos con la base de datos
-    db = sqlite3.connect('actividades.db')
-    b = db.cursor()
-    b.execute("SELECT * FROM disponibles") # Obtenemos el resultado de la consulta
-    total = 0
-    # Obtenemos la cantidad de actividades disponibles.
-    for i in b:
-        total += 1
-    # Cerramos la base de datos
-    b.close()
-    db.close()
-    return total
+    db = mongoClient['actividades_ugr']
 
-def insertar(nombre, fecha, hora):
-    db = sqlite3.connect('actividades.db')
-    b = db.cursor()
-    b.execute("INSERT INTO disponibles (nombre, fecha, hora) VALUES (?, ?, ?)", (nombre, fecha, hora))
-    db.commit()
-    b.close()
-    db.close()
+    # Obtenemos una colección para trabajar con ella
+    cursor = db['Actividades'].find()
+
+    total = 0
+
+    for c in cursor:
+        total += 1
+
+    mongoClient.close()
+    return total
