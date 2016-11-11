@@ -13,6 +13,13 @@ python:
 # Servicio mongo
 services:
   -mongodb
+before_script:
+  - echo "replSet = myReplSetName" | sudo tee -a /etc/mongodb.conf
+  - sudo service mongodb restart
+  - sleep 20
+  - mongo --eval 'rs.initiate()'
+  - sleep 15
+
 # command to install dependencies
 install: make install
 # command to run tests
