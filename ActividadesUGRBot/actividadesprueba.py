@@ -6,7 +6,7 @@ import sys
 
 con = None
 
-con = psycopg2.connect(database='actividades', user='antonio')
+con = psycopg2.connect(database='actividades')
 
 cursor = con.cursor()
 
