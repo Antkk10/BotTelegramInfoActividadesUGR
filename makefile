@@ -1,4 +1,7 @@
 install:
+	sudo apt-get update
+	sudo apt-get install mongodb
+	sudo apt-get install mongodb-server
 	pip install -r requirements.txt
 
 test:

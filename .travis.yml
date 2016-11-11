@@ -1,5 +1,3 @@
-# Distribucion de desarrollo
-build_environment: Ubuntu 16.04
 
 # Para la clave con sudo
 env:
