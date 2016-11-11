@@ -1,1 +1,1 @@
-worker: python ActividadesUGRBot/actividadesUGR_bot.py
+worker: cd ActividadesUGRBot && python actividadesUGR_bot.py
