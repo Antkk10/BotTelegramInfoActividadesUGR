@@ -1,6 +1,4 @@
 install:
-	sudo apt-get update
-	sudo apt-get install postgresql
 	pip install -r requirements.txt
 
 test:
