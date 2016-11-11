@@ -10,6 +10,12 @@ language: python
 python:
   - "2.7"
 
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database actividades' -U postgres
+  - cd ActividadesUGRBot && python actividadesprueba.py
 # command to install dependencies
 install: make install
 # command to run tests
