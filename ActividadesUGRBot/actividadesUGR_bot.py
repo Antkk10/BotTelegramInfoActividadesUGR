@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import telebot # librería para usar el bot
-import sqlite3 # Para usar la base de datos sqlite3
 #from funcionesdb import actividadesDisponibles # Función para hacer peticiones
 import funcionesdb
-from pymongo import MongoClient
+
 
 # token que nos dio bot father
 token = "285555767:AAGH4tCGG2Q2Qx_uhJFYEDhIVWx_TRhSfCI"
