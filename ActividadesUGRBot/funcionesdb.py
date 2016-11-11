@@ -41,7 +41,7 @@ def actividadesDisponibles():
 def cantidadActividades():
 
 
-    con = psycopg2.connect(database='actividades', user='antonio', password='antonio')
+    con = psycopg2.connect(database='actividades')
 
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
