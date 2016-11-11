@@ -1,56 +1,50 @@
 #!/bin/usr/python
 # -*- coding: utf-8 -*-
 
-from pymongo import MongoClient
+import psycopg2
+import sys
 
-def nombreActividad(nombre):
-    # Conectamos con mongo
-    mongoClient = MongoClient('localhost', 27017)
-    # Conectamos con la base de datos
-    db = mongoClient['actividades_ugr']
-    existe = ""
+def nombreActividad(consulta):
 
-    #Obtenemos la consulta
-    cursor = db['Actividades'].find({'actividad':nombre})
-    if cursor.count() != 0:
-        existe = True
-    else:
-        existe = False
+    con = psycopg2.connect(database='actividades', user='antonio', password='antonio')
 
-    mongoClient.close()
-
-    return existe
-
-def actividadesDisponibles():
-    # Conectamos con mongo
-    mongoClient = MongoClient('localhost', 27017)
-    # Conectamos con la base de datos
-    db = mongoClient['actividades_ugr']
-
-    # Obtenemos una colección para trabajar con ella
-    cursor = db['Actividades'].find()
+    cursor = con.cursor()
+    cursor.execute(consulta)
 
     resp = ""
+    filas = len(cursor.fetchall())
 
-    for c in cursor:
-        resp += c['actividad'] + " " + c['fecha'] + " " + c['hora'] + '\n'
+    con.close()
 
-    mongoClient.close()
+    if filas != 0:
+        return True
+
+    return False
+
+
+def actividadesDisponibles():
+
+    con = psycopg2.connect(database='actividades', user='antonio', password='antonio')
+
+    cursor = con.cursor()
+    cursor.execute('SELECT * FROM actividad')
+
+    resp = ""
+    filas = cursor.fetchall()
+    for c in filas:
+        # Almacena el nombre de la actividad, fecha y hora
+        resp += str(c[1]) + " " + str(c[2]) + " " + str(c[3]) + "\n"
+    con.close()
+
     return resp
 
 def cantidadActividades():
-    # Conectamos con mongo
-    mongoClient = MongoClient('localhost', 27017)
-    # Conectamos con la base de datos
-    db = mongoClient['actividades_ugr']
 
-    # Obtenemos una colección para trabajar con ella
-    cursor = db['Actividades'].find()
 
-    total = 0
+    con = psycopg2.connect(database='actividades', user='antonio', password='antonio')
 
-    for c in cursor:
-        total += 1
-
-    mongoClient.close()
+    cursor = con.cursor()
+    cursor.execute('SELECT * FROM actividad')
+    total = len(cursor.fetchall()) # Obtenemos el total
+    con.close()
     return total

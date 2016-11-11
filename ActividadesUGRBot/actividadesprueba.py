@@ -1,27 +1,20 @@
 #!/bin/env/python
 # -*- coding: utf-8 -*-
 
-from pymongo import MongoClient
-from estructuradb import Actividades
+import psycopg2
+import sys
 
-# Lista de actividades actuales
-actividades = [
-    Actividades('Charla python', '20/10/2017', '20:00'),
-    Actividades('Charla Java', '21/11/2018', '17:00')
-]
+con = None
 
-# Conectamos con mongo
-mongoClient = MongoClient('localhost', 27017)
+con = psycopg2.connect(database='actividades', user='antonio')
 
-# Conectamos con la base de datos
-db = mongoClient['actividades_ugr']
+cursor = con.cursor()
 
-# Obtenemos una colección para trabajar con ella
-coleccion = db['Actividades']
-# Insertamos los datos
-for act in actividades:
+cursor.execute("CREATE TABLE actividad(ID INTEGER PRIMARY KEY, nombre VARCHAR(30) NOT NULL, fecha VARCHAR(20) NOT NULL, hora VARCHAR(20) NOT NULL)")
+cursor.execute("INSERT INTO actividad(ID, nombre, fecha, hora) VALUES(1, 'Charla python', '17/07/2018', '20:00')")
+cursor.execute("INSERT INTO actividad(ID, nombre, fecha, hora) VALUES(2, 'Charla Java', '20/07/2018', '10:00')")
+cursor.execute("INSERT INTO actividad(ID, nombre, fecha, hora) VALUES(3, 'Charla C', '20/07/2018', '10:00')")
 
-    coleccion.insert(act.ColeccionDB())
+con.commit()
 
-
-mongoClient.close() # Cerramos la base de datos
+con.close()

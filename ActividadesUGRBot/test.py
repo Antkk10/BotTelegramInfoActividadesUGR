@@ -31,7 +31,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_nombre_actividad(self):
         """ Test que devuelve true si el nombre de la actividad coincide"""
-        existe = funcionesdb.nombreActividad("Charla python")
+        existe = funcionesdb.nombreActividad("Select nombre FROM actividad WHERE nombre='Charla python'")
         self.assertTrue(existe)
 
 if __name__ == '__main__':
