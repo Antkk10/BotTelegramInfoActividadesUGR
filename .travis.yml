@@ -6,7 +6,6 @@ env:
   global:
     - USUARIO=root
     - CONTRASENA=''
-
 sudo: required
 
 language: python
