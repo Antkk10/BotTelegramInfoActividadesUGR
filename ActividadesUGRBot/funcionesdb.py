@@ -28,7 +28,7 @@ def nombreActividad(consulta):
 
 def actividadesDisponibles():
 
-con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
+    con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
 
@@ -44,7 +44,7 @@ con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
 def cantidadActividades():
 
 
-con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
+    con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
     total = len(cursor.fetchall()) # Obtenemos el total
