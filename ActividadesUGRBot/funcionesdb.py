@@ -6,7 +6,7 @@ import sys
 
 def nombreActividad(consulta):
 
-    con = psycopg2.connect(database='actividades', host='/etc')
+    con = psycopg2.connect(database='actividades', host='localhost')
 
     cursor = con.cursor()
     cursor.execute(consulta)
@@ -24,7 +24,7 @@ def nombreActividad(consulta):
 
 def actividadesDisponibles():
 
-    con = psycopg2.connect(database='actividades', host='/etc')
+    con = psycopg2.connect(database='actividades', host='localhost')
 
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
@@ -41,7 +41,7 @@ def actividadesDisponibles():
 def cantidadActividades():
 
 
-    con = psycopg2.connect(database='actividades', host='/etc')
+    con = psycopg2.connect(database='actividades', host='localhost')
 
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
