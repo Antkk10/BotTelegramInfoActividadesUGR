@@ -5,12 +5,9 @@ import psycopg2
 import sys
 import urlparse
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse("postgres://zgrzkiluayeajh:8OhnfVLCO8UuYsILzLJ5I3rMbf@ec2-54-75-232-64.eu-west-1.compute.amazonaws.com:5432/d46vbusd6q613c")
-
 def nombreActividad(consulta):
 
-    con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
+    con = psycopg2.connect(database='actividades')
 
     cursor = con.cursor()
     cursor.execute(consulta)
@@ -28,7 +25,7 @@ def nombreActividad(consulta):
 
 def actividadesDisponibles():
 
-    con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
+    con = psycopg2.connect(database='actividades')
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
 
@@ -44,7 +41,7 @@ def actividadesDisponibles():
 def cantidadActividades():
 
 
-    con = psycopg2.connect(database='actividades', host=url.hostname, port=url.port)
+    con = psycopg2.connect(database='actividades')
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
     total = len(cursor.fetchall()) # Obtenemos el total
