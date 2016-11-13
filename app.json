@@ -1,0 +1,9 @@
+{
+  "name": "Actividades UGR ",
+  "description": "Bot para consultar las actividades de la UGR",
+  "image": "heroku/python",
+  "repository": "https://github.com/Antkk10/BotTelegramInfoActividadesUGR",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["python"],
+  "addons": [ "heroku-postgresql" ]
+}
