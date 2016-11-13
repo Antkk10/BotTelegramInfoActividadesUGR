@@ -6,4 +6,4 @@ test:
 
 ejecutar:
 
-	cd ActividadesUGRBot && python actividadesprueba.py && python actividadesUGR_bot.py
+	cd ActividadesUGRBot && python actividadesUGR_bot.py

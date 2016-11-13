@@ -3,12 +3,11 @@
 import telebot # librería para usar el bot
 #from funcionesdb import actividadesDisponibles # Función para hacer peticiones
 import funcionesdb
+import os
 
 
-# token que nos dio bot father
-token = "285555767:AAGH4tCGG2Q2Qx_uhJFYEDhIVWx_TRhSfCI"
 
-bot = telebot.TeleBot(token)
+bot = telebot.TeleBot(os.environ["TOKENBOT"])
 
 @bot.message_handler(commands=['hola', 'start'])
 def enviar_bienvenida(message):

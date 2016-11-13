@@ -2,12 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import psycopg2
-import sys
+import os
 import urlparse
+
+db = os.environ["NAME_BD"]
+host_db = os.environ["HOST_BD"]
+usuario = os.environ["USER_BD"]
+pw = os.environ["PW_BD"]
+
 
 def nombreActividad(consulta):
 
-    con = psycopg2.connect(database='actividades')
+    con = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
 
     cursor = con.cursor()
     cursor.execute(consulta)
@@ -25,7 +31,7 @@ def nombreActividad(consulta):
 
 def actividadesDisponibles():
 
-    con = psycopg2.connect(database='actividades')
+    con = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
 
@@ -41,7 +47,7 @@ def actividadesDisponibles():
 def cantidadActividades():
 
 
-    con = psycopg2.connect(database='actividades')
+    con = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
     cursor = con.cursor()
     cursor.execute('SELECT * FROM actividad')
     total = len(cursor.fetchall()) # Obtenemos el total
