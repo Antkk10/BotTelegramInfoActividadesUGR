@@ -20,13 +20,9 @@ Necesitamos una serie de herramientas para el correcto funcionamiento del bot.
 3. Para la obtención de información aun no se ha decidido.
 4. Uso de la API de Telegram.
 5. Posiblemente use Python y algún otro lenguaje de programación que sirva para implementar el bot.
-6. Uso de almacenes de datos para:
-  * Almacen de datos que tenga la información de las próximas actividades de la universidad con su fecha, hora de inicio y descripción.
-  * Almacen de datos con el histórico de las actividades de la universidad.
-  * Almacen de datos con información de la cantidad de veces que se solicita obtener información sobre cada actividad.
+6. Uso de **Postgresql** como almacen de datos.
 
 Se puede valorar usar algún almacen de datos más.
-El tipo de base de datos que se usará para cada cosa todavía no lo he decidido.
 
 #### Integración continua ####
 
@@ -44,3 +40,17 @@ He creado un archivo makefile para la instalación, test y ejecucición del bot.
 
     ejecutar:
     	cd ActividadesUGRBot && python actividadesUGR_bot.py
+
+#### Despliegue ####
+
+El despliegue lo he hecho en [Heroku](https://www.heroku.com). He configurado la aplicación creada en mi cuenta (la he llamado **actividadesugr**) para que cuando se realicen cambios en mi repositorio de github y pase los test de travis, estos cambios estén reflejados en la aplicación almacenada en Heroku.
+
+Para que Heroku sepa como ejecutar el bot, necesita que creemos en el directorio raiz de nuestra aplicación el fichero [Procfile](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/Procfile) con el siguiente contenido:
+
+    worker: cd ActividadesUGRBot && python actividadesUGR_bot.py
+
+También he creado un archivo llamado **runtime.txt** para indicar la versión de python:
+
+    python-2.7.12
+
+La aplicación actualmente está operativa y se puede buscar en Telegram **@ActividadesUGRbot** y de momento tiene dos funcionalidades /start y /actividades (son simplemente de prueba para ver el funcionamiento del bot).
