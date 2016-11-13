@@ -1,6 +1,7 @@
 *.lib-cov
 *.seed
 *.log
+*.pyc
 *.csv
 *.dat
 *.out
