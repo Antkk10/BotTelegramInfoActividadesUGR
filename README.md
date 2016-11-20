@@ -44,7 +44,17 @@ He creado un archivo makefile para la instalación, test y ejecucición del bot.
 
 #### Despliegue ####
 
-El despliegue lo he hecho en [Heroku](https://www.heroku.com). He configurado la aplicación creada en mi cuenta (la he llamado **actividadesugr**) para que cuando se realicen cambios en mi repositorio de github y pase los test de travis, estos cambios estén reflejados en la aplicación almacenada en Heroku.
+El despliegue lo he hecho en [Heroku](https://www.heroku.com). Para hacer dicho despliegue instalamos la linea de comandos de heroku en nuestro terminal:
+
+    wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+Posteriormente necesitamos loguearnos para poder desplegar la aplicación:
+
+    heroku login
+
+Creamos la aplicación:
+
+    heroku apps:create --region eu actividadesugr
 
 Para que Heroku sepa como ejecutar el bot, necesita que creemos en el directorio raiz de nuestra aplicación el fichero [Procfile](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/Procfile) con el siguiente contenido:
 
@@ -54,4 +64,20 @@ También he creado un archivo llamado **runtime.txt** para indicar la versión d
 
     python-2.7.12
 
-La aplicación actualmente está operativa y se puede buscar en Telegram **@ActividadesUGRbot** y de momento tiene dos funcionalidades /start y /actividades (son simplemente de prueba para ver el funcionamiento del bot).
+Para crear la base de datos (Postgresql) lo indicamos con el siguiente comando:
+
+    heroku addons:create heroku-postgresql:hobby-dev --app actividadesugr
+
+Para introducir los tokens que necesita nuestra aplicación que es el token de telegram y las credenciales para la base de datos usamos el comando:
+
+    heroku config:set TOKEN=XXXX --app actividadesugr
+
+Para desplegar la aplicación en heroku enlazamos nuestra aplicación al repositorio de github, y además le indicamos que si no pasa los test, no actualice nuestra aplicación en el despliegue. Esto se hace en la página de heroku, nuestra aplicación (actividadesugr), pestaña Deploy y lo asociamos al repositorio y pulsamos en la opción **Wait for CI to pass before deploy**
+
+Para poner en funcionamiento la aplicación introducimos este comando:
+
+    heroku ps:scale worker=1 --app actividadesugr
+
+##### Aplicación #####
+
+Para realizar consultas a la aplicación [Bot]](https://telegram.me/ActividadesUGRBot) y tiene los comandos **/start** y **/actividades**
