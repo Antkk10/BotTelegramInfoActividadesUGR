@@ -80,4 +80,4 @@ Para poner en funcionamiento la aplicación introducimos este comando:
 
 ##### Aplicación #####
 
-Para realizar consultas a la aplicación [Bot]](https://telegram.me/ActividadesUGRBot) y tiene los comandos **/start** y **/actividades**
+Para realizar consultas a la aplicación [Bot](https://telegram.me/ActividadesUGRBot) y tiene los comandos **/start** y **/actividades**
