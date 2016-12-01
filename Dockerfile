@@ -19,6 +19,7 @@ ENV USER_BD=$USER_BD
 
 RUN apt-get update
 
+
 # Instalamos python
 RUN apt-get install -y python-setuptools
 RUN apt-get install -y python-dev
