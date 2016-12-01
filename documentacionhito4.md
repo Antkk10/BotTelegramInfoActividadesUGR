@@ -61,6 +61,24 @@ Para acceder al contenedor introducimos este comando en el terminal:
 Con esta orden accedemos al contenedor, con la opción -e le damos valor a las variables de entorno que necesita mi bot para el token de Telegram y para acceder a la base de datos. Con /bin/bash indicamos que abrimos el terminal de ubuntu y **contenedoractividadesugrbot** es el nombre del contenedor que queremos acceder.
 
 Una vez que he probado que funciona el contenedor en local, he procedido a subirlo a [Docker hub](https://hub.docker.com).
-El primer paso es registrarse, después he asociado mi cuenta de github a la cuenta de docker hub. Después he hecho un push al repositorio de github para subir Dockerfile. Después del push, se actualiza el repositorio en docker hub. Para descargar el contenedor en nuestra máquina local basta con poner:
+El primer paso es registrarse, después he asociado mi cuenta de github a la cuenta de docker hub. Después he hecho un push al repositorio de github para subir Dockerfile. En el repositorio de la página web comprueba que el contenedor funciona correctamente:
+
+Nota: El Error da en la rama de Documentación ya que solo contiene archivos de texto.
+![](capturas/statusdockerhub.png)
+
+Como podemos observar el contenedor del bot funciona correctamente.
+
+
+Para descargar el contenedor en nuestra máquina local basta con poner:
 
     docker pull antkk/bottelegraminfoactividadesugr
+
+![](capturas/descargacontenedor.png)
+
+![](capturas/muestraimagen.png)
+
+#### Base de datos ####
+
+Como base de datos he usado la que tengo en **Heroku** (psql). Para conectarme a ella le paso los valores de entorno con la opción -e cuando me conecto al contenedor (leer la instrucción de como conectarse al contenedor un poco más arriba en este documento).
+
+Repositorio de docker hub [enlace](https://hub.docker.com/r/antkk/bottelegraminfoactividadesugr/)
