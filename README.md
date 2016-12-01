@@ -84,6 +84,8 @@ Para realizar consultas a la aplicación [Bot](https://telegram.me/ActividadesUG
 
 ## Contenedores con Docker ##
 
+Repositorio [Docker hub Actividades UGR bot](https://hub.docker.com/r/antkk/bottelegraminfoactividadesugr/)
+
 Hay dos formas de instalar, la primera es colocarse en la carpeta donde se encuentra [Dockerfile](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/Dockerfile):
 
     sudo docker build -t bottelegraminfoactividadesugr ./
