@@ -82,3 +82,9 @@ Para descargar el contenedor en nuestra máquina local basta con poner:
 Como base de datos he usado la que tengo en **Heroku** (psql). Para conectarme a ella le paso los valores de entorno con la opción -e cuando me conecto al contenedor (leer la instrucción de como conectarse al contenedor un poco más arriba en este documento).
 
 Repositorio de docker hub [enlace](https://hub.docker.com/r/antkk/bottelegraminfoactividadesugr/)
+
+#### Ejecutar el bot ####
+
+Para ejecutar el bot, una vez que estamos dentro del contenedor, utilizamos este comando:
+
+    cd BotTelegramInfoActividadesUGR/ActividadesUGRBot && python actividadesUGR_bot.py
