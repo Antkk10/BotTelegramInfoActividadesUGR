@@ -82,4 +82,24 @@ Para poner en funcionamiento la aplicación introducimos este comando:
 
 Para realizar consultas a la aplicación [Bot](https://telegram.me/ActividadesUGRBot) y tiene los comandos **/start** y **/actividades**
 
-## Contenedores ##
+## Contenedores con Docker ##
+
+Hay dos formas de instalar, la primera es colocarse en la carpeta donde se encuentra [Dockerfile](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/Dockerfile):
+
+    sudo docker build -t bottelegraminfoactividadesugr ./
+
+La segunda opción de instalación es hacerlo con el enlace a [Docker hub](https://hub.docker.com/r/antkk/bottelegraminfoactividadesugr/):
+
+    sudo docker pull antkk/bottelegraminfoactividadesugr
+
+Para ejecutar el bot primero accedemos al contenedor:
+
+    sudo docker run -e "DATABASE_URL=XXX" -e "HOST_BD=XXX" -e "NAME_BD=XXX" -e "PW_BD=XXX" -e "TOKENBOT=XXX" -e "USER_BD=XXX" -i -t bottelegraminfoactividadesugr /bin/bash
+
+Donde **XXX** hay que indicarle los valores de las variables de entorno para que se pueda conectar a la base de datos y el token de uso del bot de Telegram.
+
+Para ejecutar el bot:
+
+    cd BotTelegramInfoActividadesUGR/ActividadesUGRBot && python actividadesUGR_bot.py
+
+La información completa de los pasos realizados para la creación, instalación y ejecución se encuentra aquí [enlace](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/documentacionhito4.md)
