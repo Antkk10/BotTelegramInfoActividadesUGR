@@ -120,3 +120,63 @@ Cuando se estaba realizando el aprovisionamiento, he tenido un error. Esto se so
     host_key_checking = False
     [ssh_connection]
     control_path=%(directory)s/%%h-%%r
+
+Una vez que tenemos la máquina desplegada y aprovisionada, utilizamos fabric (permite empaquetar, implementar y administrar microservicios escalables y confiables) para instalar, ejecutar, realizar test y parar la ejecución.
+Para [instalar](http://www.fabfile.org/installing.html) fabric insertamos este comando:
+
+    sudo pip install fabric
+
+Una vez que tenemos instalado fabric, vamos a utilizar su funcionalidad para realizar las acciones comentadas anteriormente, pero antes vamos a ver el contenido del archivo fabfile.py que es el que usa esta herramienta:
+
+    # coding: utf-8
+
+    from fabric.api import sudo, cd, env, run, shell_env
+    import os
+
+
+    def InstalaAplicacion():
+        """ Función para descargar el bot del repositorio. """
+
+        # Descargamos la app
+        run('git clone https://github.com/Antkk10/BotTelegramInfoActividadesUGR.git')
+
+        # Accedemos y terminamos de instalar los requisitos
+        run('cd BotTelegramInfoActividadesUGR/ && pip install -r requirements.txt')
+
+    def EjecutarApp():
+        """ Función para ejecutar el Bot. """
+        with shell_env(HOST_BD=os.environ['HOST_BD'],
+                        USER_BD=os.environ['USER_BD'],
+                        PW_BD=os.environ['PW_BD'],
+                        NAME_BD=os.environ['NAME_BD'],
+                        TOKENBOT=os.environ['TOKENBOT']
+                        ):
+            run('sudo supervisorctl start botactividades')
+
+    def StopApp():
+        """ Función que para el bot. """
+        run('sudo supervisorctl stop botactividades')
+
+    def TestApp():
+        """ Función para realizar test. """
+        with shell_env(HOST_BD=os.environ['HOST_BD'],
+                        USER_BD=os.environ['USER_BD'],
+                        PW_BD=os.environ['PW_BD'],
+                        NAME_BD=os.environ['NAME_BD'],
+                        TOKENBOT=os.environ['TOKENBOT']
+                        ):
+            run('cd BotTelegramInfoActividadesUGR/ActividadesUGRBot && python test.py')
+
+Lo primero que queremos hacer es instalar la aplicación, esto lo haremos con
+
+    make install
+
+la orden de la etiqueta install sería:
+
+    fab -H vagrant@40.68.201.43 InstalaAplicacion
+
+Resultado:
+
+![](capturas/fabricinstala.png)
+
+![](capturas/fabricinstala2.png)
