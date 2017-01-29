@@ -214,3 +214,5 @@ Por último si queremos parar la ejecución del bot, usamos:
 la orden de la etiqueta parar sería:
 
     fab -H vagrant@40.68.201.43 StopApp
+
+Con todo lo explicado podemos desplegar y aprovisionar una máquina virtual, para poder instalar y ejecutar el bot de Telegram.
