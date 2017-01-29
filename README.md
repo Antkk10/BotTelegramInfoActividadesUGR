@@ -107,12 +107,41 @@ Para ejecutar el bot:
 La información completa de los pasos realizados para la creación, instalación y ejecución se encuentra aquí [enlace](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/documentacionhito4.md)
 
 ## Virtualización de Aplicaciones ##
-El objetivo de este hito es crear y dar funcionalidad a una máquina virtual remota (IaaS). Para el desarrollo del hito he usado:
-- Azure
-- Vagrant
-- Fabric
-- Ansible
-- Supervisor
+El objetivo de este hito es crear y dar funcionalidad a una máquina virtual remota (IaaS), con la aplicación del proyecto, que en este caso es un bot de Telegram. Para el desarrollo del hito he usado:
+- Azure: Proporciona un entorno gestionado para la ejecución y el despliegue de aplicaciones y servicios en la nube. Windows Azure proporciona a los desarrolladores un entorno de computación bajo demanda y almacenamiento alojado en los centros de datos de Microsoft para aplicaciones en la web.
+- Vagrant: Vagrant es un software que nos permite construir nuestras máquinas virtuales de una forma rápida y automática a través del concepto que denominan "box" o caja. Para que Vagrant nos funcione necesitamos tener instalado VirtualBox.
+- Fabric: permite empaquetar, implementar y administrar microservicios escalables y confiables.
+- Ansible: Ansible es una herramienta que nos permite gestionar configuraciones, aprovisionamiento de recursos, despliegue automático de aplicaciones y muchas otras tareas de TI de una forma limpia y sencilla.
+- Supervisor: gestor de procesos para ubuntu.
 
-La información detallada de todos estos pasos lo podemos encontrar en [enlace documentación](http://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/documentacionhito5.md)
- 
+La información detallada de todos estos pasos lo podemos encontrar en [enlace documentación hito 5](http://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/documentacionhito5.md). En esta parte solo se indicará como realizar el proceso de despliegue y ejecución de la aplicación.
+
+En este caso, todo el proceso es realmente sencillo ya que tenemos un archivo [**makefile**](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/master/makefile) con una serie de ordenes que nos sirve para poder realizar todo el despliegue sin necesidad de ir comando a comando instalando todo. El primer paso es desplegar la máquina virtual en azure, en este caso usamos:
+
+    make despliegue
+
+Se desplegará en Azure usando Vagrant. Para poder desplegar la máquina en azure, debemos de tener una cuenta con permisos de uso (vease documentación hito 5).
+
+El siguiente paso es usar:
+
+    make provision
+
+Para provisionar la máquina virtual, se usa ansible que permite instalar una serie de paquetes definidos en el archivo **playbock.yml**. Si queremos añadir nuevos paquetes a la máquina virtual, no hará falta destruir dicha máquina, con utilizar make provision será suficiente.
+
+Todos los demás comandos utilizarn Fabric.
+Si queremos descargar el contenido del repositorio que es donde está todo el contenido de la aplicación para poder ejectarla, usamos:
+
+    make install
+
+Antes de ejecutar la aplicación podemos realizar los test con la orden:
+
+    make test
+
+De esta forma nos aseguramos de que la aplicación no contiene errores.
+Para lanzar el bot utilizamos
+
+    make ejecutar
+
+Si queremos pararlo:
+
+    make parar
