@@ -3,7 +3,7 @@ despliegue:
 	vagrant provision
 
 install:
-	sudo pip install -r requirements.txt
+	pip install -r requirements.txt
 
 test:
 	cd ActividadesUGRBot && python test.py
