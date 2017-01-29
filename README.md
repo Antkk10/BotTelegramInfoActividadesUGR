@@ -7,6 +7,8 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 [![Azure](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/capturas/windows-azure.png)](botactividadesugr.azure.app)
+
+[![Telegram bot](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/capturas/telegram.png)](https://telegram.me/ActividadesUGRBot)
 #### Descripción ####
 Uso de un bot de Telegram para obtener información de las actividades que se realizan a lo largo de la semana.
 
