@@ -204,3 +204,13 @@ la orden de la etiqueta ejecutar sería:
 Resultado:
 
 ![](capturas/fabricejecutar.png)
+
+Para la ejecución de la aplicación de forma permanente en la máquina virtual, he usado un [supervisor](http://supervisord.org/installing.html)
+
+Por último si queremos parar la ejecución del bot, usamos:
+
+    make parar
+
+la orden de la etiqueta parar sería:
+
+    fab -H vagrant@40.68.201.43 StopApp
