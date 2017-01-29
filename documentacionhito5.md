@@ -192,3 +192,15 @@ la orden de la etiqueta test sería:
 Resultado:
 
 ![](capturas/fabrictest.png)
+
+Vemos que funciona, ahora toca lanzar la aplicación:
+
+    make ejecutar
+
+la orden de la etiqueta ejecutar sería:
+
+    fab -H vagrant@40.68.201.43 EjecutarApp
+
+Resultado:
+
+![](capturas/fabricejecutar.png)
