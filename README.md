@@ -5,23 +5,23 @@
 # Bot de telegram que informa sobre actividades de la UGR #
 [![Build Status](https://travis-ci.org/Antkk10/BotTelegramInfoActividadesUGR.svg?branch=master)](https://travis-ci.org/Antkk10/BotTelegramInfoActividadesUGR)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+[![Azure](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/capturas/azure.png)](botactividadesugr.azure.app)
 #### Descripción ####
 Uso de un bot de Telegram para obtener información de las actividades que se realizan a lo largo de la semana.
 
 1. El bot estará online todo el tiempo.
-2. Recopilará la información de forma autónoma.
-3. Responderá conforme se le pregunta.
-4. Tendrá un entorno en pruebas para comprobar si el bot funciona correctamente.
+2. Responderá conforme se le pregunta.
+3. Tendrá un entorno en pruebas para comprobar si el bot funciona correctamente.
 
 #### Herramientas ####
 Necesitamos una serie de herramientas para el correcto funcionamiento del bot.
 
-1. Uso de un servicio en la nube para almacenar el bot y que funcione. **Azure o Amazon**
+1. Uso de un servicio en la nube para almacenar el bot y que funcione. **Azure**.
 2. Posiblemente use como entorno de pruebas Docker.
-3. Para la obtención de información aun no se ha decidido.
-4. Uso de la API de Telegram.
-5. Posiblemente use Python y algún otro lenguaje de programación que sirva para implementar el bot.
-6. Uso de **Postgresql** como almacen de datos.
+3. Uso de la API de Telegram.
+4. Uso de Python para desarrollar el bot.
+5. Uso de **Postgresql** como almacen de datos.
 
 Se puede valorar usar algún almacen de datos más.
 
@@ -128,8 +128,8 @@ El siguiente paso es usar:
 
 Para provisionar la máquina virtual, se usa ansible que permite instalar una serie de paquetes definidos en el archivo **playbock.yml**. Si queremos añadir nuevos paquetes a la máquina virtual, no hará falta destruir dicha máquina, con utilizar make provision será suficiente.
 
-Todos los demás comandos utilizarn Fabric.
-Si queremos descargar el contenido del repositorio que es donde está todo el contenido de la aplicación para poder ejectarla, usamos:
+Todos los demás comandos utilizan Fabric.
+Si queremos descargar el contenido del repositorio que es donde está todo el contenido de la aplicación para poder ejecutarla, usamos:
 
     make install
 
@@ -138,7 +138,7 @@ Antes de ejecutar la aplicación podemos realizar los test con la orden:
     make test
 
 De esta forma nos aseguramos de que la aplicación no contiene errores.
-Para lanzar el bot utilizamos
+Para lanzar el bot utilizamos:
 
     make ejecutar
 
