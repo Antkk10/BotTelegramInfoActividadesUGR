@@ -180,3 +180,15 @@ Resultado:
 ![](capturas/fabricinstala.png)
 
 ![](capturas/fabricinstala2.png)
+
+Antes de ejecutar el bot, primero comprobamos que pasa el test con:
+
+    make test
+
+la orden de la etiqueta test sería:
+
+    fab -H vagrant@40.68.201.43 TestApp
+
+Resultado:
+
+![](capturas/fabrictest.png)
