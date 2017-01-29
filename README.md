@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/Antkk10/BotTelegramInfoActividadesUGR.svg?branch=master)](https://travis-ci.org/Antkk10/BotTelegramInfoActividadesUGR)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-[![Azure](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/capturas/azure.png)](botactividadesugr.azure.app)
+[![Azure](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/capturas/windows-azure.png)](botactividadesugr.azure.app)
 #### Descripción ####
 Uso de un bot de Telegram para obtener información de las actividades que se realizan a lo largo de la semana.
 
