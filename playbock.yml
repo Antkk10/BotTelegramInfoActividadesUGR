@@ -1,15 +1,24 @@
 - hosts: all
   sudo: yes
   remote_user: vagrant
+  vars:
+    TOKENBOT: "{{ lookup('env','TOKENBOT') }}"
+    HOST_BD: "{{ lookup('env', 'HOST_BD') }}"
+    USER_BD: "{{ lookup('env','USER_BD') }}"
+    PW_BD: "{{ lookup('env', 'PW_BD') }}"
+    NAME_BD: "{{ lookup('env', 'NAME_BD') }}"
   tasks:
   - name: Actualizar
     command: sudo apt-get update
-  - name: Instalar paquetes python parte 1
+  - name: Instalar setuptools python
     apt: name=python-setuptools state=present
+  - name: Instalar python-dev
     apt: name=python-dev state=present
+  - name: Instalar libpq-dev python
     apt: name=libpq-dev state=present
-  - name: Instalar paquetes python parte 2
+  - name: Instalar build-essential python
     apt: name=build-essential state=present
+  - name: Instalar python-psycopg2
     apt: name=python-psycopg2 state=present
   - name: Instalar git
     apt: name=git state=present
@@ -17,3 +26,9 @@
     apt: name=python-pip state=present
   - name: Instalamos la API del bot
     command: sudo pip install python-telegram-bot
+  - name: Instalar supervisor
+    apt: name=supervisor state=present
+  - name: Configura programa para supervisor
+    template: src=supervisorbot.conf dest=/etc/supervisor/conf.d/supervisorbot.conf
+  - name: Ejecutar supervisor
+    service: name=supervisor state=started
