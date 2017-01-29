@@ -3,13 +3,13 @@ despliegue:
 	vagrant provision
 
 install:
-	fab -H vagrant@40.68.201.43 InstalaAplicacion
+	sudo pip install -r requirements.txt
 
 test:
-	fab -H vagrant@40.68.201.43 TestApp
+	cd ActividadesUGRBot && python test.py
 
 ejecutar:
-	fab -H vagrant@40.68.201.43 EjecutarApp
+	cd ActividadesUGRBot && python actividadesUGR_bot.py
 
 parar:
 	fab -H vagrant@40.68.201.43 StopApp
