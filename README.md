@@ -105,3 +105,14 @@ Para ejecutar el bot:
     cd BotTelegramInfoActividadesUGR/ActividadesUGRBot && python actividadesUGR_bot.py
 
 La información completa de los pasos realizados para la creación, instalación y ejecución se encuentra aquí [enlace](https://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/documentacionhito4.md)
+
+## Virtualización de Aplicaciones ##
+El objetivo de este hito es crear y dar funcionalidad a una máquina virtual remota (IaaS). Para el desarrollo del hito he usado:
+- Azure
+- Vagrant
+- Fabric
+- Ansible
+- Supervisor
+
+La información detallada de todos estos pasos lo podemos encontrar en [enlace documentación](http://github.com/Antkk10/BotTelegramInfoActividadesUGR/blob/Documentacion/documentacionhito5.md)
+ 
