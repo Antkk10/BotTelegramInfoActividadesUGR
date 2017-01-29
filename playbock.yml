@@ -32,3 +32,6 @@
     template: src=supervisorbot.conf dest=/etc/supervisor/conf.d/supervisorbot.conf
   - name: Ejecutar supervisor
     service: name=supervisor state=started
+  - name: Instala postgresql
+    apt: name=postgresql state=present
+    apt: name=postgresql-contrib state=present
